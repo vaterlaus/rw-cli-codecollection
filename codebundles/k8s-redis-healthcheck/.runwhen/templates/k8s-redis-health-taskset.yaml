@@ -5,6 +5,7 @@ metadata:
   labels:
     {% include "common-labels.yaml" %}
   annotations:
+    dummy: test
     {% include "common-annotations.yaml" %}
 spec: 
   location: {{default_location}}

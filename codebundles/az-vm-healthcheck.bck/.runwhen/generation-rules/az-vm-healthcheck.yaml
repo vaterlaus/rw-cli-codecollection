@@ -1,0 +1,54 @@
+apiVersion: runwhen.com/v1
+kind: GenerationRules
+spec:
+  platform: azure
+  generationRules:
+    - resourceTypes:
+        - virtual_machine
+      matchRules:
+        - type: pattern
+          pattern: ".+"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: vm-health
+          levelOfDetail: basic
+          qualifiers: [resource_group]
+          baseTemplateName: az-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: az-vm-health-taskset.yaml
+    - resourceTypes:
+        - virtual_machine
+      matchRules:
+        - type: pattern
+          pattern: "Another"
+          properties: [tags]
+          mode: substring
+      slxs:
+        - baseName: vm-health2
+          levelOfDetail: basic
+          qualifiers: [resource_group]
+          baseTemplateName: az-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: az-vm-health-taskset.yaml
+    - resourceTypes:
+        - virtual_machine
+      matchRules:
+        - type: pattern
+          pattern: "Linux"
+          properties: [computerName]
+          mode: substring
+      slxs:
+        - baseName: vm-health3
+          levelOfDetail: basic
+          qualifiers: [resource_group]
+          baseTemplateName: az-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: az-vm-health-taskset.yaml
+

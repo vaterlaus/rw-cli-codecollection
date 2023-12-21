@@ -1,0 +1,37 @@
+apiVersion: runwhen.com/v1
+kind: GenerationRules
+spec:
+  platform: gcp
+  generationRules:
+    - resourceTypes:
+        - compute_instance
+      matchRules:
+        - type: pattern
+          pattern: ".+"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: vm-health
+          levelOfDetail: basic
+          qualifiers: [project]
+          baseTemplateName: gcp-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: gcp-vm-health-taskset.yaml
+    - resourceTypes:
+        - gcp_compute_instances
+      matchRules:
+        - type: pattern
+          pattern: ".+"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: vm-health2
+          levelOfDetail: basic
+          qualifiers: [project]
+          baseTemplateName: gcp-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: gcp-vm-health-taskset.yaml

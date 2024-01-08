@@ -11,7 +11,7 @@ spec:
           properties: [metadata/fingerprint]
           mode: substring
       slxs:
-        - baseName: vm-health
+        - baseName: gcp-vm-health
           levelOfDetail: basic
           qualifiers: [project]
           baseTemplateName: gcp-vm-health
@@ -27,7 +27,7 @@ spec:
           properties: [name]
           mode: substring
       slxs:
-        - baseName: vm-health2
+        - baseName: gcp-vm-health2
           levelOfDetail: basic
           qualifiers: [project]
           baseTemplateName: gcp-vm-health

@@ -11,7 +11,7 @@ spec:
           properties: [name]
           mode: substring
       slxs:
-        - baseName: vm-health
+        - baseName: az-vm-health
           levelOfDetail: basic
           qualifiers: [resource_group]
           baseTemplateName: az-vm-health
@@ -27,7 +27,7 @@ spec:
           properties: [tags]
           mode: substring
       slxs:
-        - baseName: vm-health2
+        - baseName: az-vm-health2
           levelOfDetail: basic
           qualifiers: [resource_group]
           baseTemplateName: az-vm-health
@@ -43,7 +43,7 @@ spec:
           properties: [computerName]
           mode: substring
       slxs:
-        - baseName: vm-health3
+        - baseName: az-vm-health3
           levelOfDetail: basic
           qualifiers: [resource_group]
           baseTemplateName: az-vm-health

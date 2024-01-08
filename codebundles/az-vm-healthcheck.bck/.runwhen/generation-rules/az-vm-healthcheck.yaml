@@ -40,7 +40,7 @@ spec:
       matchRules:
         - type: pattern
           pattern: "Linux"
-          properties: [computerName]
+          properties: [instance_view/computerName]
           mode: substring
       slxs:
         - baseName: az-vm-health3

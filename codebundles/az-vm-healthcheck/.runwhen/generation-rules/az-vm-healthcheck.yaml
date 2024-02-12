@@ -51,4 +51,20 @@ spec:
             - type: slx
             - type: runbook
               templateName: az-vm-health-taskset.yaml
+    - resourceTypes:
+        - azure_monitor_action_groups
+      matchRules:
+        - type: pattern
+          pattern: "Linux"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: az-prem-tbl
+          levelOfDetail: basic
+          qualifiers: [resource_group]
+          baseTemplateName: az-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: az-vm-health-taskset.yaml
 

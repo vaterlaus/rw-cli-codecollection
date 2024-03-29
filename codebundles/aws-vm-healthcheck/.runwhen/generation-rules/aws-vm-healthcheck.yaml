@@ -11,7 +11,7 @@ spec:
           properties: [name]
           mode: substring
       slxs:
-        - baseName: gcp-vm-health
+        - baseName: aws-vm-health
           levelOfDetail: basic
           # qualifiers: [project]
           baseTemplateName: aws-vm-health
@@ -20,7 +20,7 @@ spec:
             - type: runbook
               templateName: aws-vm-health-taskset.yaml
     - resourceTypes:
-        - ec2_compute_instances
+        - aws_ec2_instances
       matchRules:
         - type: pattern
           pattern: ".+"

@@ -1,7 +1,7 @@
 apiVersion: runwhen.com/v1
 kind: GenerationRules
 spec:
-  platform: gcp
+  platform: aws
   generationRules:
     - resourceTypes:
         - ec2_instance

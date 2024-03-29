@@ -1,0 +1,37 @@
+apiVersion: runwhen.com/v1
+kind: GenerationRules
+spec:
+  platform: gcp
+  generationRules:
+    - resourceTypes:
+        - ec2_instance
+      matchRules:
+        - type: pattern
+          pattern: ".+"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: gcp-vm-health
+          levelOfDetail: basic
+          # qualifiers: [project]
+          baseTemplateName: aws-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: aws-vm-health-taskset.yaml
+    - resourceTypes:
+        - ec2_compute_instances
+      matchRules:
+        - type: pattern
+          pattern: ".+"
+          properties: [name]
+          mode: substring
+      slxs:
+        - baseName: aws-vm-health2
+          levelOfDetail: basic
+          # qualifiers: [project]
+          baseTemplateName: aws-vm-health
+          outputItems:
+            - type: slx
+            - type: runbook
+              templateName: aws-vm-health-taskset.yaml
